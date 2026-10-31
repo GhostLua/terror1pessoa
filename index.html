@@ -829,7 +829,7 @@ const oSt=window.start;window.start=(sv,m)=>{MAPID=0;MTYPE=1;MAB=0;applyMT(1);oS
 // ---------- OGRO (Brutamontes): movimento lateral com as setas ← / → ----------
 // Adaptado do código GDevelop: velocidade 200 (px/s) = 2 unidades/s no jogo.
 const oMUogro=window.mUpdate;window.mUpdate=dt=>{oMUogro(dt);
-if(MTYPE==1&&!MP.on&&!M.dead&&state=='play'){const velocidade=200;let movimentoX=0;
+if(MTYPE==1&&!M.dead&&state=='play'&&(!MP.on||(MP.host&&MP.go&&MP.mon==null))){const velocidade=200;let movimentoX=0;
 if(K.ArrowLeft)movimentoX=-velocidade;
 if(K.ArrowRight)movimentoX=velocidade;
 if(movimentoX){const nx=M.x+movimentoX*0.01*dt;if(!solid(nx,M.z,.5)){M.x=nx;M.g.position.x=nx}}}};
